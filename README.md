@@ -34,6 +34,7 @@ school_data_complete.head()
 
 # %% [markdown]
 # ## District Summary
+![image](./Images/image.png)
 
 # %%
 # Calculate the total number of unique schools
@@ -106,7 +107,7 @@ district_summary
 
 # %% [markdown]
 # ## School Summary
-
+![image](./Images/image1.png)
 # %%
 # Use the code provided to select all of the school types
 school_types = school_data.set_index(["school_name"])["type"]
