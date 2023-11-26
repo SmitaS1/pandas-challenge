@@ -4,8 +4,7 @@
 # - The highest performing school which is Charter type school has lower per student budget/spending but the overall passing percentage is high in comparison to  District type of school.
 # - The overall math and reading scores by grades are consistent for all of the schools
 # - The lower the overall Spending Ranges Per Student the higher the overall passing percentage 
-# - Larger the school size lower the overall passing percent and lower the Average Math and reading scores whereas Medium and small size school has higher 
-#   the overall passing percent and higher the Average Math and reading scores
+# - Larger the school size lower the overall passing percent and lower the Average math and reading scores whereas Medium and small size school has higher the overall passing percent and higher the Average Math and reading scores
 # - The Average math score and Average reading score is higher in charter type of school in comparison to district type of school
 # - The percentage passing math and percent passing reading are higher in charter type school in comparison to district type of school
 # - Highest Performing school is charter type of school the top 5 schools
