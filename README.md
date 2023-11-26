@@ -2,7 +2,7 @@
 # # PyCity Schools Analysis
 # 
 # - The overall passing percentage is higher in Charter type of school in comparision to District type of school. 
-# - The highest performing school which is Charter type school has lower per student budget/spending but the overall passing percentage is high in comparison to District type of school.
+# - The highest performing school which is Charter type school has lower per student budget/spending but the overall passing percentage is high in comparison to  District type of school.
 # - The overall math and reading scores by grades are consistent for all of the schools
 # - The lower the overall Spending Ranges Per Student the higher the overall passing percentage 
 # - Larger the school size lower the overall passing percent and lower the Average Math and reading scores whereas Medium and small size school has higher 
@@ -11,7 +11,7 @@
 # - The percentage passing math and percent passing reading are higher in charter type school in comparison to district type of school
 # - Highest Performing school is charter type of school the top 5 schools
 # - Lower Performing school is district type of school the bottom 5 schools
-# ---
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 # 
 # 
 
@@ -42,27 +42,36 @@ school_count = school_data_complete["school_name"].unique()
 school_count = pd.Series(school_count).count()
 school_count
 
+...15
+
 # %%
 # Calculate the total number of students
 
 student_count = school_data_complete.shape[0]
 student_count
 
+...39170
 # %%
 # Calculate the total budget
 
+24649428
+
 total_budget = school_data["budget"].sum()
 total_budget
-
+...
 # %%
 # Calculate the average (mean) math score
 average_math_score = student_data["math_score"].mean()
 average_math_score
 
+...78.98537145774827
+
 # %%
 # Calculate the average (mean) reading score
 average_reading_score = student_data["reading_score"].mean()
 average_reading_score
+
+...81.87784018381414
 
 # %%
 # Use the following to calculate the percentage of students who passed math (math scores greather than or equal to 70)
@@ -70,11 +79,15 @@ passing_math_count = school_data_complete[(school_data_complete["math_score"] >=
 passing_math_percentage = passing_math_count / float(student_count) * 100
 passing_math_percentage
 
+...74.9808526933878
+
 # %%
 # Calculate the percentage of students who passed reading (hint: look at how the math percentage was calculated)  
 passing_reading_count = school_data_complete[(school_data_complete["reading_score"] >= 70)].count()["student_name"]
 passing_reading_percentage = passing_reading_count / float(student_count) * 100
 passing_reading_percentage
+
+
 
 # %%
 # Use the following to calculate the percentage of students that passed math and reading
@@ -83,6 +96,8 @@ passing_math_reading_count = school_data_complete[
 ].count()["student_name"]
 overall_passing_rate = passing_math_reading_count /  float(student_count) * 100
 overall_passing_rate
+
+...65.17232575950983
 
 # %%
 # Create a high-level snapshot of the district's key metrics in a DataFrame
@@ -103,11 +118,11 @@ district_summary["Total Budget"] = district_summary["Total Budget"].map("${:,.2f
 
 # Display the DataFrame
 district_summary
-
+![image](./Images/image1.png)
 
 # %% [markdown]
 # ## School Summary
-![image](./Images/image1.png)
+
 # %%
 # Use the code provided to select all of the school types
 school_types = school_data.set_index(["school_name"])["type"]
@@ -201,10 +216,10 @@ per_school_summary["Per Student Budget"] = per_school_summary["Per Student Budge
 
 # Display the DataFrame
 per_school_summary
-
+![image](./Images/image2.png)
 # %% [markdown]
 # ## Highest-Performing Schools (by % Overall Passing)
-
+![image](./Images/image3.png)
 # %%
 # Sort the schools by `% Overall Passing` in descending order and display the top 5 rows.
 top_schools = per_school_summary.sort_values("% Overall Passing",ascending=False)
@@ -212,7 +227,7 @@ top_schools.head(5)
 
 # %% [markdown]
 # ## Bottom Performing Schools (By % Overall Passing)
-
+![image](./Images/image4.png)
 # %%
 # Sort the schools by `% Overall Passing` in ascending order and display the top 5 rows.
 bottom_schools = per_school_summary.sort_values("% Overall Passing",ascending=True)
@@ -293,7 +308,7 @@ school_spending_df = per_school_summary.copy()
 school_spending_df["Spending Ranges (Per Student)"] = pd.cut(per_school_capita, spending_bins,labels=labels)
 
 school_spending_df
-
+![image](./Images/image5.png)
 # %%
 #  Calculate averages for the desired columns. 
 spending_math_scores = school_spending_df.groupby(["Spending Ranges (Per Student)"])["Average Math Score"].mean()
@@ -332,7 +347,7 @@ labels = ["Small (<1000)", "Medium (1000-2000)", "Large (2000-5000)"]
 per_school_summary["School Size"] = pd.cut(per_school_counts,bins=size_bins,labels=labels)
 type_summary = per_school_summary.copy()
 type_summary
-
+![image](./Images/image6.png)
 # %%
 # Calculate averages for the desired columns. 
 size_math_scores = per_school_summary.groupby(["School Size"])["Average Math Score"].mean()
@@ -376,5 +391,5 @@ type_summary = pd.DataFrame({"Average Math Score": average_math_score_by_type,
 type_summary
 
 # %%
-
+![image](./Images/image7.png)
 
